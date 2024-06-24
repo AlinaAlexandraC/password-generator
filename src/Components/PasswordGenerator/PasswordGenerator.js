@@ -1,9 +1,12 @@
 import './PasswordGenerator.css';
 
-const PasswordGenerator = ({ generatePassword }) => {
+const PasswordGenerator = ({ generatePassword, errorLabel }) => {
     return ( 
-        <div onClick={generatePassword} className="password-generator">
-            <div>Generate &rarr;</div>
+        <div>
+            <div onClick={generatePassword} className="password-generator">Generate &rarr;</div>
+            {errorLabel != "" &&
+                <label htmlFor="generate" className='error-label'>{errorLabel}</label>
+            }
         </div>
     );
 }

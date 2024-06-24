@@ -5,7 +5,7 @@ import './FormPassword.css';
 import StrengthBar from '../StrengthBar/StrengthBar';
 import PasswordGenerator from '../PasswordGenerator/PasswordGenerator';
 
-export default function SliderSizes({ includeUppercase, setIncludeUppercase, includeLowercase, setIncludeLowercase, includeNumbers, setIncludeNumbers, includeSymbols, setIncludeSymbols, generatePassword, length, setLength, checkPasswordStrength, passwordStrength }) {
+export default function SliderSizes({ includeUppercase, setIncludeUppercase, includeLowercase, setIncludeLowercase, includeNumbers, setIncludeNumbers, includeSymbols, setIncludeSymbols, generatePassword, length, setLength, passwordStrength, errorLabel }) {
     return (
         <div className="form-password">
             <div className='char-length'>
@@ -36,7 +36,7 @@ export default function SliderSizes({ includeUppercase, setIncludeUppercase, inc
                 </div>
             </div>
             <StrengthBar includeUppercase={includeUppercase} includeLowercase={includeLowercase} includeNumbers={includeNumbers} includeSymbols={includeSymbols} passwordStrength={passwordStrength} />
-            <PasswordGenerator generatePassword={generatePassword} />
+            <PasswordGenerator generatePassword={generatePassword} errorLabel={errorLabel} />
         </div>
     );
 }

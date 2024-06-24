@@ -11,6 +11,7 @@ function App() {
   const [includeSymbols, setIncludeSymbols] = React.useState(false);
   const [password, setPassword] = React.useState('P4$5W0rD!');
   const [passwordStrength, setPasswordStrength] = React.useState();
+  const [errorLabel, setErrorLabel] = React.useState("");
 
   const generatePassword = () => {
     if (
@@ -41,7 +42,15 @@ function App() {
         return generatePassword();
       }
       setPassword(password);
-    }
+    } else {
+      setErrorLabel("Please check at least one option");
+      console.log(errorLabel);
+      setTimeout(function () {
+        setErrorLabel("");
+        console.log(errorLabel);
+      }, 5000);
+
+    };
   };
 
   const checkPasswordStrength = () => {
@@ -64,26 +73,26 @@ function App() {
     if (passwordStrengthValidator < 3) {
       setPasswordStrength({
         power: "Weak",
-      })
+      });
     } else if (passwordStrengthValidator < 4) {
       setPasswordStrength({
         power: "Medium",
-      })
+      });
     } else {
       setPasswordStrength({
         power: "Strong",
-      })
+      });
     }
   };
 
-  React.useEffect(() => {checkPasswordStrength()}, [includeUppercase, includeLowercase, includeNumbers, includeSymbols, length]);
+  React.useEffect(() => { checkPasswordStrength(); }, [includeUppercase, includeLowercase, includeNumbers, includeSymbols, length]);
 
   return (
     <div className="App">
       <header className="App-header">
         <div className='app-title'>Password Generator</div>
         <DisplayPassword password={password} />
-        <FormPassword length={length} setLength={setLength} setIncludeUppercase={setIncludeUppercase} setIncludeLowercase={setIncludeLowercase} setIncludeNumbers={setIncludeNumbers} setIncludeSymbols={setIncludeSymbols} password={password} setPassword={setPassword} generatePassword={generatePassword} passwordStrength={passwordStrength} />
+        <FormPassword length={length} setLength={setLength} setIncludeUppercase={setIncludeUppercase} setIncludeLowercase={setIncludeLowercase} setIncludeNumbers={setIncludeNumbers} setIncludeSymbols={setIncludeSymbols} password={password} setPassword={setPassword} generatePassword={generatePassword} passwordStrength={passwordStrength} errorLabel={errorLabel} />
       </header>
     </div>
   );
