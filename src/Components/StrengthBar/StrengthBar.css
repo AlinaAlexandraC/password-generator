@@ -1,0 +1,36 @@
+.strength-bar {
+    background-color: rgba(24,23,31,255);
+    text-transform: uppercase;
+    width: 300px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-top: 30px;    
+}
+
+.strength-title, .strength-bars {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.strength-title {
+    color: #817f8b;
+    padding-left: 20px;
+}
+
+.strength-bars {
+    color: #e1e0e8;
+    padding-right: 10px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 5,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+}
